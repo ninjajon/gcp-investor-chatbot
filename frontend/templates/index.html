@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bruce</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+  <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}" />
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined&amp;display=block" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <div class="main">
+    <h1>Bruce</h1>
+    <p>Canada's rail transportation rules and regulations knowledge base</p>
+  </div>
+
+  <div class="search-widget">
+  </div> 
+
+</br></br></br></br></br></br></br></br>
+
+  <!--  Search widget goes here:   -->
+<!-- Widget JavaScript bundle -->
+<script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
+
+<!-- Search widget element is not visible by default -->
+<gen-search-widget
+  configId="20379cf9-38f9-46a6-88ef-6cb2a69aa6c8"
+  triggerId="searchWidgetTrigger">
+</gen-search-widget>
+
+<!-- Element that opens the widget on click. It does not have to be an input -->
+<input placeholder="Search here" id="searchWidgetTrigger" />
+  <!-- -->
+
+  <!--  Infobot widget goes here:   -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+  <df-messenger project-id="jo-bruce-yejs" agent-id="1be27516-3c3f-4df5-9fba-b71165d60520" language-code="en">
+    <df-messenger-chat-bubble chat-title="I'm Bruce, a rail safety expert" anchor="bottom-left" chat-height="500"
+      chat-width="600">
+    </df-messenger-chat-bubble>
+  </df-messenger>
+  <!-- -->
+
+</body>
+
+</html>

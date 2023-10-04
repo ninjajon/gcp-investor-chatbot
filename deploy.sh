@@ -1,5 +1,5 @@
 GOOGLE_CLOUD_PROJECT="jo-investor-chatbot-rulp"
-frontend_version=0.0.1
+frontend_version=1.0.0
 
 gcloud config set project ${GOOGLE_CLOUD_PROJECT}
 

@@ -35,9 +35,11 @@
 - /frontend/variables.tf
 ```
 
-2- Create a GCS bucket and upload files to be searched on
+2- Set a `dns_name` for the web app app in `frontend/variables.tf`
 
-3- Give the `Storage Object Viewer` role to the discoveryengine default service account. 
+3- Create a GCS bucket and upload files to be searched on
+
+4- Give the `Storage Object Viewer` role to the discoveryengine default service account. 
 
 ```
 project_id="jo-investor-chatbot-rulp"
@@ -46,15 +48,17 @@ gcloud config set project $project_id
 gcloud projects add-iam-policy-binding $project_id --member="serviceAccount:service-$project_number@gcp-sa-discoveryengine.iam.gserviceaccount.com" --role="roles/storage.objectViewer"
 ```
 
-3- Create one Search Gen App Builder app and copy/paste the code into `/frontend/templates/index.html`
+5- Create one Search Gen App Builder app and copy/paste the code into `/frontend/templates/index.html`
 - Make sure to enable `Public Access` and add your domain to the allow-list.
 - Make sure to set the domain name for the web site in the `/frontend/variables.tf`
 
-4- Create one Chat Gen App Builder app and replace the `project-id` and `agent-id` in the same file with the ones from your new app.
+6- Create one Chat Gen App Builder app and replace the `project-id` and `agent-id` in the same file with the ones from your new app.
 
-4- Configure and finetune both the Search and Infobot using the GCP console
+7- Configure and finetune both the Search and Infobot using the GCP console
 
-5- Run `deploy.sh` (you may need to run chmod +x deploy.sh first)
+8- Run `deploy.sh` (you may need to run chmod +x deploy.sh first)
 
-6- Setup the OAuth consent screen for IAP from within the GCP console and grant `IAP Web user` role on the IAP app to the users of your choice
+9- Setup the OAuth consent screen for IAP from within the GCP console and grant `IAP Web user` role on the IAP app to the users of your choice
+
+10- Go into the OAuth2 settings of your IAP app and copy paste to the `main.tf` file, in the `iap_config` block, the client id and secret.  Redeploy.
 

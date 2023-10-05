@@ -1,1 +1,0 @@
-# gcp-ninja-rail

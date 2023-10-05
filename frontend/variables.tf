@@ -11,5 +11,5 @@ variable "image_version" {
   default = "1.0.0"
 }
 variable "dns_name" {
-  default ="financial-insights.ninjajon.com"
+  default ="warren.ninjajon.com"
 }

@@ -1,7 +1,7 @@
 //create a service account
 resource "google_service_account" "cloudrun_sa" {
   project      = var.project
-  account_id   = "${var.prefix}-bruce-sa"
+  account_id   = "${var.prefix}-run-sa"
   display_name = "Cloud Function Service Account"
 }
 
@@ -14,13 +14,13 @@ resource "google_project_iam_member" "cloudrun_sa_roles" {
 
 resource "google_cloud_run_service" "cloud_run_srv" {
   project  = var.project
-  name     = "${var.prefix}-bruce"
+  name     = "${var.prefix}-run"
   location = var.region
 
   template {
     spec {
       containers {
-        image = "gcr.io/${var.project}/bruce:${var.image_version}"
+        image = "gcr.io/${var.project}/run:${var.image_version}"
       }
       service_account_name = google_service_account.cloudrun_sa.email
 
@@ -59,7 +59,7 @@ resource "google_cloud_run_service_iam_policy" "noauth" {
 # create a serverless neg for my cloud run
 resource "google_compute_region_network_endpoint_group" "default" {
   project               = var.project
-  name                  = "${var.prefix}-bruce-neg"
+  name                  = "${var.prefix}-run-neg"
   network_endpoint_type = "SERVERLESS"
   region                = var.region
   cloud_run {
@@ -71,7 +71,7 @@ module "lb" {
   source = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
 
   project = var.project
-  name    = "${var.prefix}-bruce"
+  name    = "${var.prefix}-run"
 
   ssl                             = true
   managed_ssl_certificate_domains = [var.dns_name]
@@ -95,8 +95,8 @@ module "lb" {
 
       iap_config = {
         enable               = true
-        oauth2_client_id     = "605991433505-f034qli2gerhc65js7h0fkqhbfi7ms17.apps.googleusercontent.com"
-        oauth2_client_secret = "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"
+        oauth2_client_id     = "799957396070-d2kofe7r74j5n8gosg8iq4nj1v49mh85.apps.googleusercontent.com"
+        oauth2_client_secret = "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"
       }
 
       security_policy = null

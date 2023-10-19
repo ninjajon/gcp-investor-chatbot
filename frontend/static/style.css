@@ -5,7 +5,7 @@
 
 body {
     background-image: url("background.avif");
-    background-size: cover;
+    background-size: 100vw 100vh;
     background-attachment: fixed;
     font-family: "Google Sans", sans-serif;
     color: #482B14;
@@ -13,17 +13,17 @@ body {
 }
 
 .main {
-    position: absolute;
+    /* position: absolute;
     top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
 .search-widget {
-    position: absolute;
+    /* position: absolute;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
 df-messenger {

@@ -18,33 +18,35 @@
     <p>Your CN Rail financial advisor. Ask me any question about past CN's financial results.</p>
   </div>
 
-  <div class="search-widget">
-  </div> 
+  <!-- Search widget goes here: -->
+  <!-- Widget JavaScript bundle -->
+  <script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
 
-</br></br></br></br></br></br></br></br>
+  <!-- Search widget element is not visible by default -->
+  <gen-search-widget configId="f5e82422-2c40-4eb2-b3ee-8c1bd8e2417f" triggerId="searchWidgetTrigger">
+  </gen-search-widget>
 
-  <!--  Search widget goes here:   -->
-<!-- Widget JavaScript bundle -->
-<script src="https://cloud.google.com/ai/gen-app-builder/client?hl=en_US"></script>
-
-<!-- Search widget element is not visible by default -->
-<gen-search-widget
-  configId="f5e82422-2c40-4eb2-b3ee-8c1bd8e2417f"
-  triggerId="searchWidgetTrigger">
-</gen-search-widget>
-
-<!-- Element that opens the widget on click. It does not have to be an input -->
-<input placeholder="Search here" id="searchWidgetTrigger" />
+  <!-- Element that opens the widget on click. It does not have to be an input -->
+  <input placeholder="Search here" id="searchWidgetTrigger" />
   <!-- -->
+  </br></br>
+  <p style="text-align: left">Try these questions:
+    </br>- What is the railway safety act?
+    </br>- Can I still run a train if there is a loose wheel??
+    </br> Follow-up question : what about a wrong size axle??
+    </br>Powered by
+    <a href="https://cloud.google.com/generative-ai-app-builder">Vertex AI Search and Conversation</a>
+  </p>
 
   <!--  Infobot widget goes here:   -->
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-  <df-messenger project-id="jo-investor-chatbot-rulp" agent-id="9dccf05d-6625-454e-9cab-6902b59444cc" language-code="en">
-    <df-messenger-chat-bubble chat-title="I'm Warren, a financial analyst" anchor="bottom-left" chat-height="500"
-      chat-width="600">
+  <df-messenger project-id="jo-investor-chatbot-rulp" agent-id="9dccf05d-6625-454e-9cab-6902b59444cc"
+    storage-option="none" language-code="en">
+    <df-messenger-chat-bubble chat-title="I'm Warren, a financial analyst" anchor="bottom-left">
     </df-messenger-chat-bubble>
   </df-messenger>
   <!-- -->
+  </div>
 
 </body>
 
